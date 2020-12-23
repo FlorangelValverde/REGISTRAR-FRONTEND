@@ -1,0 +1,65 @@
+<div>
+    <div>
+        <br>
+        <h1 id="t" style="font-size: 40px;">REGISTRO DE SOLICITANTES</h1><br>
+    </div>
+    <div class="t2">
+        <h1 style="font-size: 30px;">Solicitantes</h1>
+        <h5 id="s" style="font-size: 20px;">Todos los solicitantes de la base de datos</h5>
+    </div>
+    <div class="card" style="width: 80rem; margin-left: 118px; height: 550px;">
+        <div class="cabecera">
+            <div class="botones">
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" style="height: 45px;" routerLink="/usuario"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+          Nuevo Solicitante
+      
+        </button>
+                <form class="buscador">
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label"><i class="fa fa-search" aria-hidden="true"></i>
+      
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Buscar por DNI">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table class="table table-bordered" style="width: 98%; margin-left:12px;">
+                <thead>
+                    <tr style="font-family:Arial, Helvetica, sans-serif">
+                        <th scope="col">#</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">NOMBRE COMPLETO</th>
+                        <th scope="col">DIRECCION</th>
+                        <th scope="col">FECHA DE NACIMIENTO</th>
+                        <th scope="col">CORREO</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">CONTRASEÑA</th>
+                        <th scope="col">ACCIONES</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let lista of listausuarios, let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{lista.DNI}}</td>
+                        <td>{{lista.NOMBRE}} {{lista.APE_PAT}} {{lista.APE_MAT}}</td>
+                        <td>{{lista.UBICACION}}</td>
+                        <td>{{lista.F_NAC}}</td>
+                        <td>{{lista.CORREO}}</td>
+                        <td>{{lista.TELEFONO}}</td>
+                        <td>{{lista.PASSWORD}}</td>
+                        <td><button type="button" class="btn btn-outline-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button ></td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
