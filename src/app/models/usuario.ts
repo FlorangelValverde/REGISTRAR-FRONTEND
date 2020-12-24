@@ -12,5 +12,5 @@ export class Usuariopersona{
     f_nac : string;
     ubicacion : string;
     password : string;
-
+    id_pers : number;
 }

@@ -20,7 +20,7 @@
       
                         </label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Buscar por DNI">
+                            <input type="search" class="form-control" id="inputPassword" placeholder="Buscar por DNI">
                         </div>
                     </div>
                 </form>
@@ -51,8 +51,8 @@
                         <td>{{lista.CORREO}}</td>
                         <td>{{lista.TELEFONO}}</td>
                         <td>{{lista.PASSWORD}}</td>
-                        <td><button type="button" class="btn btn-outline-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                            <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button ></td>
+                        <td><button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal" (click)="setusuario(lista)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteusuarioper(lista.ID_USUA)"><i class="fa fa-trash" aria-hidden="true"></i></button ></td>
 
                     </tr>
 
@@ -63,3 +63,65 @@
         </div>
 
     </div>
+
+    <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Datos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">DNI</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="DNI" name="DNI" [(ngModel)]="usuarioModel.dni">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">NOMBRE</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="NOMBRES" name="NOMBRES" [(ngModel)]="usuarioModel.nombre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">APELLIDO MATERNO</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="PRIMER APELLIDO" name="NOMBRES" [(ngModel)]="usuarioModel.ape_pat">
+                </div>
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">APELLIDO PATERNO</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="SEGUNDO APELLIDO" name="NOMBRES" [(ngModel)]="usuarioModel.ape_mat">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">DIRECCION</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="DIRECCION" name="DIRECCION" [(ngModel)]="usuarioModel.ubicacion">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">FECHA DE NACIMIENTO</label>
+                <div class="col-sm-10">
+                    <input type="date" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" name="FECHA_NAC" [(ngModel)]="usuarioModel.f_nac">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">CORREO</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 50%;" class="form-control form-control-sm" id="colFormLabelSm" placeholder="example@gmail.com" name="CORREO" [(ngModel)]="usuarioModel.correo">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="update(usuarioModel)">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
